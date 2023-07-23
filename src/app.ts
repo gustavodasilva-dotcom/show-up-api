@@ -3,6 +3,7 @@ import "dotenv/config";
 import * as bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
+import fileupload from "express-fileupload";
 import credentials from "./middlewares/credentials";
 import { corsOptions } from "./config/configOptions";
 import connectDb from "./database/mongo";
@@ -22,6 +23,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use(bodyParser.json());
+
+app.use(fileupload());
 
 configRoutes(app);
 

@@ -1,5 +1,5 @@
 export interface Image {
   name: string,
-  image: Buffer,
+  data: Buffer,
   contentType: string
 };

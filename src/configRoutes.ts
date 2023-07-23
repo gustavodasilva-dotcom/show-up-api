@@ -9,7 +9,7 @@ const configRoutes = function (app: Express) {
     next();
   });
 
-  app.use(`${API_PREFIX}/images`, require("./routes/images"));
+  app.use(`${API_PREFIX}/upload`, require("./routes/upload"));
 
   app.use((_req: Request, res: Response) => {
     res.status(StatusCodes.BadRequest).json({
