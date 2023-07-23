@@ -62,7 +62,9 @@ router.post("/", async (req: Request, res: Response) => {
 
     const result = await Promise.all(promises);
 
-    res.json(result);
+    res.json({
+      data: result.map(i => { return i?.id })
+    });
   } catch (error: any) {
     ErrorHandler(error, res);
   }
