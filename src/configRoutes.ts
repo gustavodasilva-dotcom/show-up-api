@@ -11,6 +11,7 @@ const configRoutes = function (app: Express) {
 
   app.use(`${API_PREFIX}/upload`, require("./routes/upload"));
   app.use(`${API_PREFIX}/download`, require("./routes/download"));
+  app.use(`${API_PREFIX}/search`, require("./routes/search"));
 
   app.use((_req: Request, res: Response) => {
     res.status(StatusCodes.BadRequest).json({

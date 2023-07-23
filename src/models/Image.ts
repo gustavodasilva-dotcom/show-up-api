@@ -1,5 +1,10 @@
+export interface Tags {
+  name: string
+};
+
 export interface Image {
   name: string,
   data: Buffer,
-  contentType: string
+  contentType: string,
+  tags: Tags[]
 };

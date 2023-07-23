@@ -13,6 +13,10 @@ const imageSchema = new mongoose.Schema({
   contentType: {
     type: String,
     require: true
+  },
+  tags: {
+    type: [{ name: String }],
+    require: true
   }
 });
 
