@@ -10,7 +10,6 @@ const router = express.Router();
 router.post("/", async (req: Request, res: Response) => {
   try {
     const files = req.files;
-    const tags = req.query?.tags;
 
     if (!files) {
       return res.status(StatusCodes.BadRequest).json({
@@ -18,15 +17,6 @@ router.post("/", async (req: Request, res: Response) => {
           statusCode: StatusCodes.BadRequest
         },
         message: "No files were attached to the request"
-      });
-    }
-
-    if (!tags) {
-      return res.status(StatusCodes.BadRequest).json({
-        error: {
-          statusCode: StatusCodes.BadRequest
-        },
-        message: "No tags were informed at the query request"
       });
     }
 
@@ -40,10 +30,7 @@ router.post("/", async (req: Request, res: Response) => {
       images.push({
         name: image.name,
         data: image.data,
-        contentType: image.mimetype,
-        tags: tags.toString()?.split(" ")?.map(t => {
-          return { name: t }
-        })
+        contentType: image.mimetype
       });
     });
 
